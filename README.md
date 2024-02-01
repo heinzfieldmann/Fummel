@@ -13,3 +13,6 @@ For example (DX7-compatible platforms):
 Hardware: DX7/FS1R/DX200/TX812
 
 Software: Dexed, FM8
+
+Other interesting projects:
+https://github.com/mmontag/dx7-synth-js/tree/master
