@@ -2,7 +2,7 @@
 # Can we read and parse the sysex-file?
 
 # Opening the binary file in binary mode as rb(read binary)
-f = open("../patches/foo.sysex", mode="rb")
+f = open("../patches/bass001.syx", mode="rb")
  
 # Reading file data with read() method
 data = f.read()
