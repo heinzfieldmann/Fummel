@@ -4,33 +4,42 @@
 # Opening the binary file in binary mode as rb(read binary)
 # Let do it with one file to examine the file structure.
 # We have some metadata about the patches and also the patch data
+# 8 bytes are metadata? And rest are patch data.
 # The patch data is stored in 32 consecutive 128 byte chunks.
 # It would be quite easy to map them 
 # I want to put the data in a database. Perhaps etcd?
 # I might be able to do a hash of the 128 byte struct do avaid storing duplicates if I do large scale imports of patches.
 
-sysex_file = open("../patches/bass001.syx", mode="rb")
+file_name="../patches/bass001.syx"
+sysex_file = open(file_name, mode="rb")
  
 # Reading file data with read() method
 s = sysex_file.read()
- 
 no_bytes=(len(s))
 
-print(type(s))
-      
-#Print start of sysex. First item. Should be xf0/240/11110000
-S_start=(s[0])
-print(S_start)
+#Store the file metadata in variables.
+S_start, S_ID, S_status, S_format, S_bytecount_msb, S_bytecount_lsb = s[0:6]
 
+# Hm. In bulk data exchange is 1 or 32 the two exclusive numbers of patches?
+# S_format = 0 (1 voice) S_format = 9 (32 voices)
+if S_format == 0:
+    no_patches = 1
+elif S_format == 9:
+    no_patches = 32
+else:
+    exit(1)
 
-# MachineID. Yamaha x43/67
-S_ID=(s[1])
-print(S_ID)
+print("The file",file_name,"has",no_patches,"DX7 patch(es)")
 
+#print(S_format)
+# meta data format.
+#     11110000  F0   Status byte - start sysex
+#     0iiiiiii  43   ID # (i=67; Yamaha)
+#     0sssnnnn  00   Sub-status (s=0) & channel number (n=0; ch 1)
+#     0fffffff  00   format number (f=0; 1 voice)
+#     0bbbbbbb  01   byte count MS byte
+#     0bbbbbbb  1B   byte count LS byte (b=155; 1 voice)
 
-#Print end of sysex. Last item. shoud be xf7/247/11111011
-S_stop=(s[no_bytes-1])
-print(S_stop)
 
 # Closing the opened file
 sysex_file.close()
