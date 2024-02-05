@@ -23,7 +23,9 @@ Tech:
 
 First step. Create something that reads  sysex-files scraped from the internet and store the patches in a database. 
 
-Number two: Normalize them for the ML-network.
+Step 2: Normalize them for the ML-network.
+
+Step 3: Look into the ML-stuff.. 
 
 We could containerize the whole shebang?
 
