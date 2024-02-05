@@ -15,8 +15,6 @@ Hardware: DX7/FS1R/DX200/TX812
 
 Software: Dexed, FM8
 
-Other interesting projects:
-https://github.com/mmontag/dx7-synth-js/tree/master
 
 
 Tech:
@@ -30,3 +28,8 @@ Step 3: Look into the ML-stuff..
 We could containerize the whole shebang?
 
 To store the presets we could have a denormalized database? Column store in for example sqlite? One row per patch.
+
+
+Other interesting projects:
+https://github.com/mmontag/dx7-synth-js/tree/master
+
