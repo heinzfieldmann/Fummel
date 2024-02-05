@@ -31,6 +31,22 @@ else:
 
 print("The file",file_name,"has",no_patches,"DX7 patch(es)")
 
+# Test av att läsa in patchnamne ur binärfältet.
+
+# In bulk mode we have 32 patches. Lets iterate over them. 
+offset=124 #The first patch position
+for p in range(32):
+    offset=p*128+offset
+    VOICENAME=""
+    for n in range(10):
+        VOICENAME=VOICENAME+(chr(s[offset+n]))
+    print(VOICENAME)
+
+#FIRST=FIRST+128
+#for n in range(11):
+#  print(chr(s[FIRST+n]))
+  
+
 #print(S_format)
 # meta data format.
 #     11110000  F0   Status byte - start sysex
