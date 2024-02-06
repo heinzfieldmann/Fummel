@@ -33,3 +33,4 @@ To store the presets we could have a denormalized database? Column store in for 
 Other interesting projects:
 https://github.com/mmontag/dx7-synth-js/tree/master
 
+https://patches.fm/
