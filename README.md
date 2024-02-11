@@ -15,7 +15,7 @@ Hardware: DX7/FS1R/DX200/TX812
 
 Software: Dexed, FM8
 
-
+a goal! create an open dataset!
 
 Tech:
 
